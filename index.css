@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ──────────────────────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #050812;
+    color: #e2e8f0;
+    font-family: "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  /* Remove number input arrows */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar        { width: 6px; }
+  ::-webkit-scrollbar-track  { background: transparent; }
+  ::-webkit-scrollbar-thumb  { background: rgba(0, 229, 255, 0.15); border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(0, 229, 255, 0.3); }
+}
+
+/* ── Component utilities ───────────────────────────────────────────────────── */
+@layer components {
+  /* Glassmorphism card */
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  /* Slightly brighter variant for nested elements */
+  .glass-bright {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Neon cyan glow — applied to CTA button */
+  .glow-cyan {
+    box-shadow:
+      0 0 20px rgba(0, 229, 255, 0.35),
+      0 0 60px rgba(0, 229, 255, 0.15);
+  }
+
+  /* Gradient text helper */
+  .gradient-text {
+    background: linear-gradient(135deg, #00e5ff, #b345f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Recharts override — remove default white background on tooltip */
+  .recharts-tooltip-wrapper .recharts-default-tooltip {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  /* Input focus ring */
+  .mark-input:focus {
+    outline: none;
+    border-color: rgba(0, 229, 255, 0.5) !important;
+    box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.1);
+  }
+}
